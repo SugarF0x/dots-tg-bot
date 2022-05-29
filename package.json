@@ -1,0 +1,16 @@
+{
+  "name": "dots-tg-bot",
+  "version": "1.0.0",
+  "repository": "https://github.com/SugarF0x/dots-tg-bot.git",
+  "author": "Alexey Tuzov <sugarfox.dev@gmail.com>",
+  "private": true,
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.3.0",
+    "typescript": "^4.7.2",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
