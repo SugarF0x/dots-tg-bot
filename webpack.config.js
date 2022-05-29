@@ -1,22 +1,36 @@
-const path = require('path');
+const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.ts',
-  output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
+  target: 'node',
   module: {
     rules: [
       {
-        test: /\.ts/,
+        test: /\.ts$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        include: path.resolve(__dirname, "src")
       },
     ],
   },
   resolve: {
-    extensions: ['.ts'],
+    extensions: ['.ts', '.js'],
+  },
+  plugins: [
+    new CleanWebpackPlugin({
+      protectWebpackAssets: false,
+      cleanAfterEveryBuildPatterns: ['*.LICENSE.txt'],
+    }),
+    new Dotenv({
+      path: './.env'
+    })
+  ],
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  optimization: {
+    minimize: true
   },
 };
