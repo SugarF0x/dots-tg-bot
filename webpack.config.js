@@ -1,9 +1,9 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+const NodemonPlugin = require('nodemon-webpack-plugin')
 
 module.exports = {
-  mode: 'production',
   target: 'node',
   module: {
     rules: [
@@ -24,6 +24,9 @@ module.exports = {
     }),
     new Dotenv({
       path: './.env'
+    }),
+    new NodemonPlugin({
+      script: './dist/index.js'
     })
   ],
   output: {

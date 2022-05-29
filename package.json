@@ -5,13 +5,15 @@
   "author": "Alexey Tuzov <sugarfox.dev@gmail.com>",
   "private": true,
   "scripts": {
-    "build": "webpack",
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
     "serve": "node dist"
   },
   "devDependencies": {
     "@types/node-telegram-bot-api": "^0.57.1",
     "clean-webpack-plugin": "^4.0.0",
     "dotenv-webpack": "^7.1.0",
+    "nodemon-webpack-plugin": "^4.7.1",
     "ts-loader": "^9.3.0",
     "typescript": "^4.7.2",
     "webpack": "^5.72.1",
